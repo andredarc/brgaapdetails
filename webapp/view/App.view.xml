@@ -1,0 +1,71 @@
+<mvc:View controllerName="brgaapdetails.controller.App"
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    displayBlock="true" >
+
+    
+  <Page showHeader="false" >
+		<subHeader>
+			<Toolbar>
+                <Title level="H3" text="Projeto BrGaap" />
+                
+				
+			</Toolbar>
+		</subHeader>
+	</Page>
+		
+    <Table 
+		id="invoiceList"
+		class="sapUiResponsiveMargin"
+		width="auto"
+		items="{
+			path : 'invoice>/Invoices',
+			sorter : {
+				path : 'userId',
+				group : true
+			}
+		}">
+    
+		<headerToolbar>
+			<Toolbar>
+				<Title text="{i18n>Lista de Invoices}"/>
+				<ToolbarSpacer/>
+				<SearchField width="50%" search="onSearch"  placeholder="Pesquisar"/>
+			</Toolbar>
+		</headerToolbar>
+        
+		<columns>
+			<Column
+				hAlign="End"
+				minScreenWidth="Tablet"
+				demandPopin="true"
+				width="5em">
+				<Text text="{i18n>Id}"/>
+			</Column>
+			<Column>
+				<Text text="{i18n>nome}"/>
+			</Column>
+			<Column
+				minScreenWidth="Small"
+				demandPopin="true">
+				<Text text="{i18n>Status}"/>
+			</Column>
+			
+		</columns>
+		<items>
+			<ColumnListItem
+				type="Navigation"
+				press=".onPress">
+				<cells>
+					<ObjectNumber number="{invoice>id}" emphasized="false"/>
+					<ObjectIdentifier title="{invoice>title}"/>
+					<CheckBox select="check"  enabled="false"  checked="true" selected="{invoice>completed}" />
+                    
+					
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+    	
+</mvc:View>

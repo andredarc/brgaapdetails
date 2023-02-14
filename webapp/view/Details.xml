@@ -1,0 +1,29 @@
+<mvc:View
+	controllerName="brgaapdetails.controller.Details"
+	xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	>
+	<Page
+		title="{i18n>Detalhes}"
+		showNavButton="true"
+		navButtonPress=".onNavBack">
+		<landmarkInfo>
+			<PageAccessibleLandmarkInfo
+				rootRole="Region"
+				rootLabel="{i18n>Detail_rootLabel}"
+				contentRole="Main"
+				contentLabel="{i18n>Detail_contentLabel}"
+				headerRole="Banner"
+				headerLabel="{i18n>Detail_headerLabel}"/>
+		</landmarkInfo>
+		<ObjectHeader
+			responsive="true"
+			fullScreenOptimized="true"
+			numberUnit="{view>/currency}"
+			intro="{invoice>Id}"
+			title="{invoice>title}">
+			
+		</ObjectHeader>
+		
+	</Page>
+</mvc:View>
